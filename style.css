@@ -8,7 +8,6 @@
 }
 
 body {
-    background: #081B29;
     color: #EDEDED;
 }
 
@@ -26,10 +25,21 @@ body {
 }
 
 .logo {
+    position: relative;
     font-size: 25px;
     color: #EDEDED;
     text-decoration: none;
     font-weight: 600;
+}
+
+.logo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: red;
 }
 
 .navbar a {
@@ -48,6 +58,9 @@ body {
 
 .home {
     height: 100vh;
+    background: url('home.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
     display: flex;
     align-items: center;
     padding: 0 10%;
@@ -86,27 +99,44 @@ body {
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    position: relative;
     width: 150px;
     height: 100%;
     background: #00ABF0;
     border: 2px solid #00ABF0;
     border-radius: 8px;
+    font-size: 19px;
     color: #081B29;
     text-decoration: none;
     font-weight: 600;
     letter-spacing: 1px;
-    z-index: 1;
     overflow: hidden;
+    z-index: 1;
+    transition: .5s;
 }
+
+.btn-box a:hover {
+    color: #00ABF0;
+}
+
 .btn-box a:nth-child(2) {
     background: transparent;
     color: #00ABF0;
+}
+
+.btn-box a:nth-child(2):hover {
+    color: #081B29;
+}
+
+.btn-box a:nth-child(2)::before {
+    background: #00ABF0;
 }
 
 .btn-box a::before {
     content: '';
     position: absolute;
     top: 0;
+    left: 0;
     width: 0;
     height: 100%;
     background: #081B29;
@@ -114,6 +144,69 @@ body {
     transition: .5s;
 }
 
-.btn-box a:hover:before {
+.btn-box a:hover::before {
     width: 100%;
+}
+
+.home-sci {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    bottom: 40px;
+    width: 170px;
+}
+
+.home-sci a {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 2px solid #00ABF0;
+    border-radius: 50%;
+    font-size: 20px;
+    color: #00ABF0;
+    text-decoration: none;
+    z-index: 1;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.home-sci a:hover {
+    color: #081B29;
+}
+
+.home-sci a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #00ABF0;
+    z-index: -1;
+    transition: .5s;
+}
+
+.home-sci a:hover::before {
+    width: 100%;
+}
+
+.home-imgHover {
+    position: absolute;
+    top: 0;
+    right: 30px;
+    width: 500px;
+    height: 100%;
+    background: transparent;
+    border: 2px solid red;
+    transition: 3s;
+}
+
+.home-imgHover:hover {
+    background: #081B29;
+    opacity: 0.8;
 }
